@@ -50,11 +50,20 @@ class IgBot:
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
             try:
-                like = driver.find_element_by_class_name("wpO6b").click()
+                # Like button approach (problem when pic is already liked)
+                # driver.find_element_by_class_name("wpO6b").click()
+
+                # Double tap picture approach (Didn't work) (Couldn't emulate double tap)
+                picture = driver.find_element_by_xpath("//header/following-sibling::div/div[@class='ZyFrc'][@role='button']") 
+                picture.click()
+                picture.click()
+                
                 time.sleep(18)
+
+                
             except Exception as e:
                 time.sleep(2)
 
 myBot = IgBot("im_andrevital", "LightersBME1.-")
 myBot.login();
-myBot.like_photo('audioloveofficial')
+myBot.like_photo('livephotography')
