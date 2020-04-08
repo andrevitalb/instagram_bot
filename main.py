@@ -51,16 +51,16 @@ class IgBot:
 
             try:
                 # Like button approach (problem when pic is already liked)
-                # driver.find_element_by_class_name("wpO6b").click()
+                # # Fixed it by verifying if like button was active
+                if driver.find_element_by_css_selector('button.wpO6b > svg[aria-label="Me gusta"]'):
+                    driver.find_element_by_class_name("wpO6b").click()
+                    time.sleep(18)
+                else: time.sleep(2)
 
                 # Double tap picture approach (Didn't work) (Couldn't emulate double tap)
-                picture = driver.find_element_by_xpath("//header/following-sibling::div/div[@class='ZyFrc'][@role='button']") 
-                picture.click()
-                picture.click()
-                
-                time.sleep(18)
-
-                
+                # picture = driver.find_element_by_xpath("//header/following-sibling::div/div[@class='ZyFrc'][@role='button']") 
+                # picture.click()
+                # picture.click()
             except Exception as e:
                 time.sleep(2)
 
