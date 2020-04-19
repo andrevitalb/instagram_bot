@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from secrets import username, password
 import time
 
 class IgBot:
@@ -36,7 +37,7 @@ class IgBot:
         driver.get("https://instagram.com/explore/tags/" + hashtag + "/")
         time.sleep(3)
 
-        for i in range(1, 5):
+        for i in range(1, 20):
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(2)
 
@@ -56,6 +57,6 @@ class IgBot:
                 else: time.sleep(2)
             except Exception as e: time.sleep(2)
 
-myBot = IgBot("username", "password")
-myBot.login();
+myBot = IgBot(username, password)
+myBot.login()
 myBot.like_photo('audioloveofficial')
