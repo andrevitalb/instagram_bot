@@ -29,7 +29,7 @@ class IgBot:
         
         time.sleep(8)
 
-        notifsDodge = driver.find_element_by_xpath("//button[contains(text(), 'Ahora no')]")
+        notifsDodge = driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")
         notifsDodge.click()
 
     def like_photo(self, hashtag):
@@ -43,13 +43,13 @@ class IgBot:
 
         hrefs = driver.find_elements_by_tag_name('a')
         pic_hrefs = [elem.get_attribute('href') for elem in hrefs]
-        pic_hrefs = [href for href in pic_hrefs if '/p/B-' in href]
+        pic_hrefs = [href for href in pic_hrefs if '/p/B' in href]
 
         for idx, pic_href in enumerate(pic_hrefs):
             driver.get(pic_href)
 
             try:
-                if len(driver.find_elements_by_css_selector('._97aPb + div > section > span > button.wpO6b > svg[aria-label="Me gusta"]')) >= 1:
+                if len(driver.find_elements_by_css_selector('._97aPb + div > section > span > button.wpO6b > svg[aria-label="Like"]')) >= 1:
                     if len(driver.find_elements_by_xpath("//header//a[(text() = 'im_andrevital')]")) <= 0:
                         driver.find_element_by_class_name("wpO6b").click()
                         time.sleep(18)
