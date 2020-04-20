@@ -18,4 +18,4 @@ This function with like an approximate of 50 photos of any tag you enter. It doe
 
 > This function is currently W.I.P.
 
-### Requests for more functions are open
+##### Requests for more functions are open
